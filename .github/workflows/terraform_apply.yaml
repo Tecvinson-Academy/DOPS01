@@ -1,5 +1,10 @@
 name: terraform-apply-dops01
-on: push
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   terraform-apply-dops01:
     runs-on: ubuntu-latest

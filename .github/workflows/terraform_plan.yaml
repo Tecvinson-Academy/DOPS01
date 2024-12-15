@@ -1,12 +1,16 @@
 name: terraform-plan-dops01
-on: pull_request
+on:
+  pull_request:
+    branches:
+      - main
+
 jobs:
   terraform-plan-dops01:
     runs-on: ubuntu-latest
     steps:
       
       - uses: actions/checkout@v4
-      
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -17,14 +21,14 @@ jobs:
       - uses: hashicorp/setup-terraform@v3
         name: Setup terraform on the workflow
 
+      - name: Terraform Init
+        run:  terraform init
+
       - name: Terraform Format
         run: terraform fmt
 
       - name: Terraform Validate
         run:  terraform validate
-
-      - name: Terraform Init
-        run:  terraform init
 
       - name: Terraform plan
         run: terraform plan
