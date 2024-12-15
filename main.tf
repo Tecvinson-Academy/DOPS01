@@ -46,6 +46,7 @@ resource "aws_security_group" "rds_sg" {
 resource "aws_db_instance" "default" {
   allocated_storage    = 10
   db_name              = "mydb"
+  identifier           = "DOPS01-db"
   engine               = "mysql"
   engine_version       = "8.0"
   instance_class       = "db.t3.micro"
