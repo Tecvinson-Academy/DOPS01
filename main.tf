@@ -33,7 +33,7 @@ resource "aws_db_subnet_group" "db_subnet_group" {
 
 resource "aws_security_group" "rds_sg" {
   name = "rds-sg"
-  vpc_id = data.aws_vpc.vpc_dops01
+  vpc_id = data.aws_vpc.vpc_dops01.id
 
   ingress {
     from_port        = 3306
