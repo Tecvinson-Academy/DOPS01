@@ -5,6 +5,7 @@ data "aws_vpc" "vpc_dops01" {
 resource "aws_subnet" "dops01_subnet1" {
   vpc_id     = "vpc-08fcbd2bedfbbddaa"
   cidr_block = "192.168.128.0/19"
+  availability_zone = "us-east-1c"
 
   tags = {
     Name = "dops01_subnet1"
@@ -14,6 +15,7 @@ resource "aws_subnet" "dops01_subnet1" {
 resource "aws_subnet" "dops01_subnet2" {
   vpc_id     = "vpc-08fcbd2bedfbbddaa"
   cidr_block = "192.168.160.0/19"
+  availability_zone = "us-east-1d"
 
   tags = {
     Name = "dops01_subnet2"
